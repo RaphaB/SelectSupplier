@@ -19,7 +19,7 @@ class SelectSupplier
   def work_all(work_type)
     selected_suppliers = @suppliers.select { |supplier| supplier.works.has_key?(work_type) }
     selected_suppliers.sort_by! do |supplier|
-      global_grade_for(supplier, work_type)
+      -global_grade_for(supplier, work_type)
     end
     selected_suppliers.map(&:to_data)
   end

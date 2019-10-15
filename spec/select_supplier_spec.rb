@@ -30,17 +30,17 @@ RSpec.describe SelectSupplier do
     end
 
     context 'high grade weight' do
-      let(:grade_weight) { 1500 }
+      let(:grade_weight) { 1 }
 
-      xit 'should return the correct supplier' do
+      it 'should return the correct supplier' do
         expect(subject[:name]).to eq('FuneTruc')
       end
     end
 
     context 'low grade weight' do
-      let(:grade_weight) { 1 }
+      let(:grade_weight) { -500 }
 
-      xit 'should return the correct supplier' do
+      it 'should return the correct supplier' do
         expect(subject[:name]).to eq('FunePlus')
       end
     end
@@ -54,9 +54,9 @@ RSpec.describe SelectSupplier do
     end
 
     context 'high grade weight' do
-      let(:grade_weight) { 1500 }
+      let(:grade_weight) { 1 }
 
-      xit 'should return the suppliers in correct order' do
+      it 'should return the suppliers in correct order' do
         expected_suppliers = ['FuneTruc', 'FunePlus']
         result             = subject.map { |supplier| supplier[:name] }
         expect(result).to eq(expected_suppliers)
@@ -64,9 +64,9 @@ RSpec.describe SelectSupplier do
     end
 
     context 'low grade weight' do
-      let(:grade_weight) { 1 }
+      let(:grade_weight) { -500 }
 
-      xit 'should return the suppliers in correct order' do
+      it 'should return the suppliers in correct order' do
         expected_suppliers = ['FunePlus', 'FuneTruc']
         result             = subject.map { |supplier| supplier[:name] }
         expect(result).to eq(expected_suppliers)

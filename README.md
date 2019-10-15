@@ -6,6 +6,8 @@ Tests effectués avec Rspec (`rspec spec/select_supplier_spec.rb` pour lancer), 
 
 Petit problème rencontré concernant la formule pour calculer le `global_grade`, ce que j'avais initialement compris pour `global_grade` était que si `grade_weight` était faible, le meilleur fournisseur serait celui ayant le plus petit prix, et a l'inverse en cas de `grade_weight` élevé le meilleur fournisseur serait celui avec la meilleure note. Mais ce n'est pas ce que fait cette formule, du coup je ne sais pas bien si mon interpretation du `global_grade` est éronnée ou si  la formule est fausse. Si jamais c'était effectivement le fonctionnement attendu pour le `global_grade` alors la formule devrait plutot avoir le format : `(grade_weight * (6 - advitam_grade)) + work_price`, de cette manière, le prestataire ayant le plus petit score sera soit celui ayant le plus petit prix (dans le cas d'une pondération faible de la note), soit celui ayant la meilleure note (dans le cas d'une pondération forte de la note).
 
+EDIT : Après vérification la formule a bien ce comportement mais pour des valeurs de `grade_weight` négatives (plusieurs centaines). Donc tout est bon.
+
 # Classe `Supplier`
 
 J'ai fait le choix de créer une classe afin d'encapsuler les données des `suppliers`, cela me semblait plus approprié plutôt que de manipuler les data a la main.
