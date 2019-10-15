@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../select_supplier'
+require_relative '../src/select_supplier'
 
 RSpec.describe SelectSupplier do
   let(:supplier_select) { described_class.new(suppliers) }
